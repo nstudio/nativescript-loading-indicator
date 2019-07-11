@@ -6,11 +6,11 @@ NativeScript-Loading-Indicator is a plugin for NativeScript which overlays a loa
 </h4>
 
 <p align="center">
-    <a href="https://www.npmjs.com/package/nativescript-loading-indicator">
-        <img src="https://img.shields.io/npm/v/nativescript-loading-indicator.svg" alt="npm">
+    <a href="https://www.npmjs.com/package/@nstudio/nativescript-loading-indicator">
+        <img src="https://img.shields.io/npm/v/@nstudio/nativescript-loading-indicator.svg" alt="npm">
     </a>
-    <a href="https://www.npmjs.com/package/nativescript-loading-indicator">
-        <img src="https://img.shields.io/npm/dt/nativescript-loading-indicator.svg?label=npm%20downloads" alt="npm">
+    <a href="https://www.npmjs.com/package/@nstudio/nativescript-loading-indicator">
+        <img src="https://img.shields.io/npm/dt/@nstudio/nativescript-loading-indicator.svg?label=npm%20downloads" alt="npm">
     </a>
     <a href="https://github.com/nstudio/nativescript-loading-indicator/stargazers">
         <img src="https://img.shields.io/github/stars/nstudio/nativescript-loading-indicator.svg" alt="stars">
