@@ -1,7 +1,7 @@
 ## Run Demo
 
 ```
-git clone https://github.com/NathanWalker/nativescript-loading-indicator.git
+git clone https://github.com/nstudio/nativescript-loading-indicator.git
 cd nativescript-loading-indicator
 npm run setup  // you will see some TypeScript warnings, this is normal, you can ignore :)
 
@@ -23,7 +23,7 @@ npm run demo.android
 **Please follow these basic steps to simplify pull request reviews - if you don't you'll probably just be asked to anyway.**
 
 - Please rebase your branch against the current master
-- Make reference to possible [issues](https://github.com/NathanWalker/nativescript-loading-indicator/issues) on PR comment
+- Make reference to possible [issues](https://github.com/nstudio/nativescript-loading-indicator/issues) on PR comment
 
 ## Submitting bug reports
 
