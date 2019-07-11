@@ -41,19 +41,26 @@ tns plugin add @nstudio/nativescript-loading-indicator
 ### iOS
 
 <p align="center">
-  <img src="./screenshots/ios/1.png" style="max-width:200px" alt="iOS Example 1">
+
+|                                                                       |                                                                       |                                                                       |                                                                       |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| <img src="./screenshots/ios/1.png" style="max-width:200px" alt="iOS"> | <img src="./screenshots/ios/2.png" style="max-width:200px" alt="iOS"> | <img src="./screenshots/ios/3.png" style="max-width:200px" alt="iOS"> | <img src="./screenshots/ios/4.png" style="max-width:200px" alt="iOS"> |
+
+  <!-- <img src="./screenshots/ios/1.png" style="max-width:200px" alt="iOS Example 1">
   <img src="./screenshots/ios/2.png" style="max-width:200px" alt="iOS Example 2">
   <img src="./screenshots/ios/3.png" style="max-width:200px" alt="iOS Example 3">
-  <img src="./screenshots/ios/4.png" style="max-width:200px" alt="iOS Example 4">
+  <img src="./screenshots/ios/4.png" style="max-width:200px" alt="iOS Example 4"> -->
+
 </p>
 
 ### Android
 
 <p align="center">
-  <img src="./screenshots/android/1.png" style="max-width:200px" alt="Android Example 1">
-  <img src="./screenshots/android/2.png" style="max-width:200px" alt="Android Example 2">
-  <img src="./screenshots/android/3.png" style="max-width:200px" alt="Android Example 3">
-  <img src="./screenshots/android/4.png" style="max-width:200px" alt="Android Example 4">
+
+|                                                                               |                                                                               |                                                                               |                                                                               |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| <img src="./screenshots/android/1.png" style="max-width:200px" alt="Android"> | <img src="./screenshots/android/2.png" style="max-width:200px" alt="Android"> | <img src="./screenshots/android/3.png" style="max-width:200px" alt="Android"> | <img src="./screenshots/android/4.png" style="max-width:200px" alt="Android"> |
+
 </p>
 
 ## Example
