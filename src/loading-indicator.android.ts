@@ -1,8 +1,8 @@
 import * as application from 'tns-core-modules/application';
 import { Color } from 'tns-core-modules/color';
+import { Frame } from 'tns-core-modules/ui/frame';
 import { fromFileOrResource } from 'tns-core-modules/image-source';
 import { screen } from 'tns-core-modules/platform';
-import { topmost } from 'tns-core-modules/ui/frame';
 import { ad as androidUtils } from 'tns-core-modules/utils/utils';
 import { Mode, OptionsCommon } from './loading-indicator.common';
 
@@ -315,7 +315,7 @@ export class LoadingIndicator {
     contentView.addView(parentView);
     this._popOver.setContentView(contentView);
     const view =
-      topmost().android.rootViewGroup || topmost().currentPage.android;
+      Frame.topmost().android.rootViewGroup || Frame.topmost().currentPage.android;
 
     // handle anchoring target view
     if (options.android.view) {
