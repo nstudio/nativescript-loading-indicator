@@ -318,7 +318,7 @@ export class LoadingIndicator {
       Frame.topmost().android.rootViewGroup || Frame.topmost().currentPage.android;
 
     // handle anchoring target view
-    if (options.android.view) {
+    if (options.android && options.android.view) {
       const nativeView = options.android.view as android.view.View;
       this._popOver.setWidth(nativeView.getWidth());
       this._popOver.setHeight(nativeView.getHeight());
