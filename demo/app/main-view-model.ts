@@ -1,8 +1,8 @@
-import { LoadingIndicator, Mode } from 'nativescript-loading-indicator';
-import { Observable } from 'tns-core-modules/data/observable';
-import { confirm } from 'tns-core-modules/ui/dialogs';
-import { Page } from 'tns-core-modules/ui/page';
-import { openUrl } from 'tns-core-modules/utils/utils';
+import { Observable } from '@nativescript/core/data/observable';
+import { confirm } from '@nativescript/core/ui/dialogs';
+import { Page } from '@nativescript/core/ui/page';
+import { openUrl } from '@nativescript/core/utils/utils';
+import { LoadingIndicator, Mode } from '@nstudio/nativescript-loading-indicator';
 
 export class LoadingTest extends Observable {
   private indicator: LoadingIndicator;
