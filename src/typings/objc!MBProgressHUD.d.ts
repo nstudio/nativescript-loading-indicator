@@ -1,227 +1,270 @@
-
 declare class MBBackgroundView extends UIView {
+  static alloc(): MBBackgroundView; // inherited from NSObject
 
-	static alloc(): MBBackgroundView; // inherited from NSObject
+  static appearance(): MBBackgroundView; // inherited from UIAppearance
 
-	static appearance(): MBBackgroundView; // inherited from UIAppearance
+  static appearanceForTraitCollection(
+    trait: UITraitCollection
+  ): MBBackgroundView; // inherited from UIAppearance
 
-	static appearanceForTraitCollection(trait: UITraitCollection): MBBackgroundView; // inherited from UIAppearance
+  static appearanceForTraitCollectionWhenContainedIn(
+    trait: UITraitCollection,
+    ContainerClass: typeof NSObject
+  ): MBBackgroundView; // inherited from UIAppearance
 
-	static appearanceForTraitCollectionWhenContainedIn(trait: UITraitCollection, ContainerClass: typeof NSObject): MBBackgroundView; // inherited from UIAppearance
+  static appearanceForTraitCollectionWhenContainedInInstancesOfClasses(
+    trait: UITraitCollection,
+    containerTypes: NSArray<typeof NSObject> | typeof NSObject[]
+  ): MBBackgroundView; // inherited from UIAppearance
 
-	static appearanceForTraitCollectionWhenContainedInInstancesOfClasses(trait: UITraitCollection, containerTypes: NSArray<typeof NSObject> | typeof NSObject[]): MBBackgroundView; // inherited from UIAppearance
+  static appearanceWhenContainedIn(
+    ContainerClass: typeof NSObject
+  ): MBBackgroundView; // inherited from UIAppearance
 
-	static appearanceWhenContainedIn(ContainerClass: typeof NSObject): MBBackgroundView; // inherited from UIAppearance
+  static appearanceWhenContainedInInstancesOfClasses(
+    containerTypes: NSArray<typeof NSObject> | typeof NSObject[]
+  ): MBBackgroundView; // inherited from UIAppearance
 
-	static appearanceWhenContainedInInstancesOfClasses(containerTypes: NSArray<typeof NSObject> | typeof NSObject[]): MBBackgroundView; // inherited from UIAppearance
+  static new(): MBBackgroundView; // inherited from NSObject
 
-	static new(): MBBackgroundView; // inherited from NSObject
+  blurEffectStyle: UIBlurEffectStyle;
 
-	blurEffectStyle: UIBlurEffectStyle;
+  color: UIColor;
 
-	color: UIColor;
-
-	style: MBProgressHUDBackgroundStyle;
+  style: MBProgressHUDBackgroundStyle;
 }
 
 declare class MBBarProgressView extends UIView {
+  static alloc(): MBBarProgressView; // inherited from NSObject
 
-	static alloc(): MBBarProgressView; // inherited from NSObject
+  static appearance(): MBBarProgressView; // inherited from UIAppearance
 
-	static appearance(): MBBarProgressView; // inherited from UIAppearance
+  static appearanceForTraitCollection(
+    trait: UITraitCollection
+  ): MBBarProgressView; // inherited from UIAppearance
 
-	static appearanceForTraitCollection(trait: UITraitCollection): MBBarProgressView; // inherited from UIAppearance
+  static appearanceForTraitCollectionWhenContainedIn(
+    trait: UITraitCollection,
+    ContainerClass: typeof NSObject
+  ): MBBarProgressView; // inherited from UIAppearance
 
-	static appearanceForTraitCollectionWhenContainedIn(trait: UITraitCollection, ContainerClass: typeof NSObject): MBBarProgressView; // inherited from UIAppearance
+  static appearanceForTraitCollectionWhenContainedInInstancesOfClasses(
+    trait: UITraitCollection,
+    containerTypes: NSArray<typeof NSObject> | typeof NSObject[]
+  ): MBBarProgressView; // inherited from UIAppearance
 
-	static appearanceForTraitCollectionWhenContainedInInstancesOfClasses(trait: UITraitCollection, containerTypes: NSArray<typeof NSObject> | typeof NSObject[]): MBBarProgressView; // inherited from UIAppearance
+  static appearanceWhenContainedIn(
+    ContainerClass: typeof NSObject
+  ): MBBarProgressView; // inherited from UIAppearance
 
-	static appearanceWhenContainedIn(ContainerClass: typeof NSObject): MBBarProgressView; // inherited from UIAppearance
+  static appearanceWhenContainedInInstancesOfClasses(
+    containerTypes: NSArray<typeof NSObject> | typeof NSObject[]
+  ): MBBarProgressView; // inherited from UIAppearance
 
-	static appearanceWhenContainedInInstancesOfClasses(containerTypes: NSArray<typeof NSObject> | typeof NSObject[]): MBBarProgressView; // inherited from UIAppearance
+  static new(): MBBarProgressView; // inherited from NSObject
 
-	static new(): MBBarProgressView; // inherited from NSObject
+  lineColor: UIColor;
 
-	lineColor: UIColor;
+  progress: number;
 
-	progress: number;
+  progressColor: UIColor;
 
-	progressColor: UIColor;
-
-	progressRemainingColor: UIColor;
+  progressRemainingColor: UIColor;
 }
 
 declare class MBProgressHUD extends UIView {
+  static HUDForView(view: UIView): MBProgressHUD;
 
-	static HUDForView(view: UIView): MBProgressHUD;
+  static allHUDsForView(view: UIView): NSArray<any>;
 
-	static allHUDsForView(view: UIView): NSArray<any>;
+  static alloc(): MBProgressHUD; // inherited from NSObject
 
-	static alloc(): MBProgressHUD; // inherited from NSObject
+  static appearance(): MBProgressHUD; // inherited from UIAppearance
 
-	static appearance(): MBProgressHUD; // inherited from UIAppearance
+  static appearanceForTraitCollection(trait: UITraitCollection): MBProgressHUD; // inherited from UIAppearance
 
-	static appearanceForTraitCollection(trait: UITraitCollection): MBProgressHUD; // inherited from UIAppearance
+  static appearanceForTraitCollectionWhenContainedIn(
+    trait: UITraitCollection,
+    ContainerClass: typeof NSObject
+  ): MBProgressHUD; // inherited from UIAppearance
 
-	static appearanceForTraitCollectionWhenContainedIn(trait: UITraitCollection, ContainerClass: typeof NSObject): MBProgressHUD; // inherited from UIAppearance
+  static appearanceForTraitCollectionWhenContainedInInstancesOfClasses(
+    trait: UITraitCollection,
+    containerTypes: NSArray<typeof NSObject> | typeof NSObject[]
+  ): MBProgressHUD; // inherited from UIAppearance
 
-	static appearanceForTraitCollectionWhenContainedInInstancesOfClasses(trait: UITraitCollection, containerTypes: NSArray<typeof NSObject> | typeof NSObject[]): MBProgressHUD; // inherited from UIAppearance
+  static appearanceWhenContainedIn(
+    ContainerClass: typeof NSObject
+  ): MBProgressHUD; // inherited from UIAppearance
 
-	static appearanceWhenContainedIn(ContainerClass: typeof NSObject): MBProgressHUD; // inherited from UIAppearance
+  static appearanceWhenContainedInInstancesOfClasses(
+    containerTypes: NSArray<typeof NSObject> | typeof NSObject[]
+  ): MBProgressHUD; // inherited from UIAppearance
 
-	static appearanceWhenContainedInInstancesOfClasses(containerTypes: NSArray<typeof NSObject> | typeof NSObject[]): MBProgressHUD; // inherited from UIAppearance
+  static hideAllHUDsForViewAnimated(view: UIView, animated: boolean): number;
 
-	static hideAllHUDsForViewAnimated(view: UIView, animated: boolean): number;
+  static hideHUDForViewAnimated(view: UIView, animated: boolean): boolean;
 
-	static hideHUDForViewAnimated(view: UIView, animated: boolean): boolean;
+  static new(): MBProgressHUD; // inherited from NSObject
 
-	static new(): MBProgressHUD; // inherited from NSObject
+  static showHUDAddedToAnimated(view: UIView, animated: boolean): MBProgressHUD;
 
-	static showHUDAddedToAnimated(view: UIView, animated: boolean): MBProgressHUD;
+  activityIndicatorColor: UIColor;
 
-	activityIndicatorColor: UIColor;
+  animationType: MBProgressHUDAnimation;
 
-	animationType: MBProgressHUDAnimation;
+  readonly backgroundView: MBBackgroundView;
 
-	readonly backgroundView: MBBackgroundView;
+  readonly bezelView: MBBackgroundView;
 
-	readonly bezelView: MBBackgroundView;
+  readonly button: UIButton;
 
-	readonly button: UIButton;
+  color: UIColor;
 
-	color: UIColor;
+  completionBlock: () => void;
 
-	completionBlock: () => void;
+  contentColor: UIColor;
 
-	contentColor: UIColor;
+  cornerRadius: number;
 
-	cornerRadius: number;
+  customView: UIView;
 
-	customView: UIView;
+  defaultMotionEffectsEnabled: boolean;
 
-	defaultMotionEffectsEnabled: boolean;
+  delegate: MBProgressHUDDelegate;
 
-	delegate: MBProgressHUDDelegate;
+  readonly detailsLabel: UILabel;
 
-	readonly detailsLabel: UILabel;
+  detailsLabelColor: UIColor;
 
-	detailsLabelColor: UIColor;
+  detailsLabelFont: UIFont;
 
-	detailsLabelFont: UIFont;
+  detailsLabelText: string;
 
-	detailsLabelText: string;
+  dimBackground: boolean;
 
-	dimBackground: boolean;
+  graceTime: number;
 
-	graceTime: number;
+  readonly label: UILabel;
 
-	readonly label: UILabel;
+  labelColor: UIColor;
 
-	labelColor: UIColor;
+  labelFont: UIFont;
 
-	labelFont: UIFont;
+  labelText: string;
 
-	labelText: string;
+  margin: number;
 
-	margin: number;
+  minShowTime: number;
 
-	minShowTime: number;
+  minSize: CGSize;
 
-	minSize: CGSize;
+  mode: MBProgressHUDMode;
 
-	mode: MBProgressHUDMode;
+  offset: CGPoint;
 
-	offset: CGPoint;
+  opacity: number;
 
-	opacity: number;
+  progress: number;
 
-	progress: number;
+  progressObject: NSProgress;
 
-	progressObject: NSProgress;
+  removeFromSuperViewOnHide: boolean;
 
-	removeFromSuperViewOnHide: boolean;
+  readonly size: CGSize;
 
-	readonly size: CGSize;
+  square: boolean;
 
-	square: boolean;
+  taskInProgress: boolean;
 
-	taskInProgress: boolean;
+  xOffset: number;
 
-	xOffset: number;
+  yOffset: number;
 
-	yOffset: number;
+  constructor(o: { view: UIView });
 
-	constructor(o: { view: UIView; });
+  constructor(o: { window: UIWindow });
 
-	constructor(o: { window: UIWindow; });
+  hide(animated: boolean): void;
 
-	hide(animated: boolean): void;
+  hideAfterDelay(animated: boolean, delay: number): void;
 
-	hideAfterDelay(animated: boolean, delay: number): void;
+  hideAnimated(animated: boolean): void;
 
-	hideAnimated(animated: boolean): void;
+  hideAnimatedAfterDelay(animated: boolean, delay: number): void;
 
-	hideAnimatedAfterDelay(animated: boolean, delay: number): void;
+  initWithView(view: UIView): this;
 
-	initWithView(view: UIView): this;
+  initWithWindow(window: UIWindow): this;
 
-	initWithWindow(window: UIWindow): this;
+  show(animated: boolean): void;
 
-	show(animated: boolean): void;
+  showAnimated(animated: boolean): void;
 
-	showAnimated(animated: boolean): void;
+  showAnimatedWhileExecutingBlock(animated: boolean, block: () => void): void;
 
-	showAnimatedWhileExecutingBlock(animated: boolean, block: () => void): void;
+  showAnimatedWhileExecutingBlockCompletionBlock(
+    animated: boolean,
+    block: () => void,
+    completion: () => void
+  ): void;
 
-	showAnimatedWhileExecutingBlockCompletionBlock(animated: boolean, block: () => void, completion: () => void): void;
+  showAnimatedWhileExecutingBlockOnQueue(
+    animated: boolean,
+    block: () => void,
+    queue: NSObject
+  ): void;
 
-	showAnimatedWhileExecutingBlockOnQueue(animated: boolean, block: () => void, queue: NSObject): void;
+  showAnimatedWhileExecutingBlockOnQueueCompletionBlock(
+    animated: boolean,
+    block: () => void,
+    queue: NSObject,
+    completion: () => void
+  ): void;
 
-	showAnimatedWhileExecutingBlockOnQueueCompletionBlock(animated: boolean, block: () => void, queue: NSObject, completion: () => void): void;
-
-	showWhileExecutingOnTargetWithObjectAnimated(method: string, target: any, object: any, animated: boolean): void;
+  showWhileExecutingOnTargetWithObjectAnimated(
+    method: string,
+    target: any,
+    object: any,
+    animated: boolean
+  ): void;
 }
 
 declare const enum MBProgressHUDAnimation {
+  Fade = 0,
 
-	Fade = 0,
+  Zoom = 1,
 
-	Zoom = 1,
+  ZoomOut = 2,
 
-	ZoomOut = 2,
-
-	ZoomIn = 3
+  ZoomIn = 3
 }
 
 declare const enum MBProgressHUDBackgroundStyle {
+  SolidColor = 0,
 
-	SolidColor = 0,
-
-	Blur = 1
+  Blur = 1
 }
 
 interface MBProgressHUDDelegate extends NSObjectProtocol {
-
-	hudWasHidden?(hud: MBProgressHUD): void;
+  hudWasHidden?(hud: MBProgressHUD): void;
 }
 declare var MBProgressHUDDelegate: {
-
-	prototype: MBProgressHUDDelegate;
+  prototype: MBProgressHUDDelegate;
 };
 
 declare const enum MBProgressHUDMode {
+  Indeterminate = 0,
 
-	Indeterminate = 0,
+  Determinate = 1,
 
-	Determinate = 1,
+  DeterminateHorizontalBar = 2,
 
-	DeterminateHorizontalBar = 2,
+  AnnularDeterminate = 3,
 
-	AnnularDeterminate = 3,
+  CustomView = 4,
 
-	CustomView = 4,
-
-	Text = 5
+  Text = 5
 }
 
 declare var MBProgressHUDVersionNumber: number;
@@ -231,28 +274,39 @@ declare var MBProgressHUDVersionString: interop.Reference<number>;
 declare var MBProgressMaxOffset: number;
 
 declare class MBRoundProgressView extends UIView {
+  static alloc(): MBRoundProgressView; // inherited from NSObject
 
-	static alloc(): MBRoundProgressView; // inherited from NSObject
+  static appearance(): MBRoundProgressView; // inherited from UIAppearance
 
-	static appearance(): MBRoundProgressView; // inherited from UIAppearance
+  static appearanceForTraitCollection(
+    trait: UITraitCollection
+  ): MBRoundProgressView; // inherited from UIAppearance
 
-	static appearanceForTraitCollection(trait: UITraitCollection): MBRoundProgressView; // inherited from UIAppearance
+  static appearanceForTraitCollectionWhenContainedIn(
+    trait: UITraitCollection,
+    ContainerClass: typeof NSObject
+  ): MBRoundProgressView; // inherited from UIAppearance
 
-	static appearanceForTraitCollectionWhenContainedIn(trait: UITraitCollection, ContainerClass: typeof NSObject): MBRoundProgressView; // inherited from UIAppearance
+  static appearanceForTraitCollectionWhenContainedInInstancesOfClasses(
+    trait: UITraitCollection,
+    containerTypes: NSArray<typeof NSObject> | typeof NSObject[]
+  ): MBRoundProgressView; // inherited from UIAppearance
 
-	static appearanceForTraitCollectionWhenContainedInInstancesOfClasses(trait: UITraitCollection, containerTypes: NSArray<typeof NSObject> | typeof NSObject[]): MBRoundProgressView; // inherited from UIAppearance
+  static appearanceWhenContainedIn(
+    ContainerClass: typeof NSObject
+  ): MBRoundProgressView; // inherited from UIAppearance
 
-	static appearanceWhenContainedIn(ContainerClass: typeof NSObject): MBRoundProgressView; // inherited from UIAppearance
+  static appearanceWhenContainedInInstancesOfClasses(
+    containerTypes: NSArray<typeof NSObject> | typeof NSObject[]
+  ): MBRoundProgressView; // inherited from UIAppearance
 
-	static appearanceWhenContainedInInstancesOfClasses(containerTypes: NSArray<typeof NSObject> | typeof NSObject[]): MBRoundProgressView; // inherited from UIAppearance
+  static new(): MBRoundProgressView; // inherited from NSObject
 
-	static new(): MBRoundProgressView; // inherited from NSObject
+  annular: boolean;
 
-	annular: boolean;
+  backgroundTintColor: UIColor;
 
-	backgroundTintColor: UIColor;
+  progress: number;
 
-	progress: number;
-
-	progressTintColor: UIColor;
+  progressTintColor: UIColor;
 }
