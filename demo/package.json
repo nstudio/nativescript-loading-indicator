@@ -11,7 +11,7 @@
   "dependencies": {
     "nativescript-theme-core": "^1.0.4",
     "nativescript-unit-test-runner": "0.7.0",
-    "nativescript-loading-indicator": "file:../src",
+    "@nstudio/nativescript-loading-indicator": "file:../src",
     "tns-core-modules": "^6.3.2"
   },
   "devDependencies": {
