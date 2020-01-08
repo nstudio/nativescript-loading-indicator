@@ -1,18 +1,18 @@
 {
   "nativescript": {
     "id": "org.nativescript.demo",
-    "tns-ios": {
-      "version": "6.0.0-rc-2019-06-28-105002-01"
-    },
     "tns-android": {
-      "version": "6.0.0-rc-2019-06-27-172817-03"
+      "version": "6.3.1"
+    },
+    "tns-ios": {
+      "version": "6.3.0"
     }
   },
   "dependencies": {
     "nativescript-theme-core": "^1.0.4",
-    "nativescript-unit-test-runner": "0.6.4",
-    "nativescript-loading-indicator": "file:../src",
-    "tns-core-modules": "6.0.0-rc-2019-07-08-111131-01"
+    "nativescript-unit-test-runner": "0.7.0",
+    "@nstudio/nativescript-loading-indicator": "file:../src",
+    "tns-core-modules": "^6.3.2"
   },
   "devDependencies": {
     "jasmine-core": "^2.5.2",
@@ -20,10 +20,10 @@
     "karma-jasmine": "2.0.1",
     "karma-nativescript-launcher": "^0.4.0",
     "nativescript-css-loader": "~0.26.1",
-    "nativescript-dev-webpack": "1.0.0-rc-2019-07-08-135456-03",
-    "tns-platform-declarations": "6.0.0-rc-2019-06-28-175837-02",
-    "tslint": "~5.12.1",
-    "typescript": "3.4.1",
+    "nativescript-dev-webpack": "1.4.1",
+    "tns-platform-declarations": "6.3.2",
+    "tslint": "~5.20.1",
+    "typescript": "3.7.4",
     "karma-webpack": "3.0.5"
   },
   "scripts": {

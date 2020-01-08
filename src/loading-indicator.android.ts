@@ -1,8 +1,8 @@
 import * as application from 'tns-core-modules/application';
 import { Color } from 'tns-core-modules/color';
-import { Frame } from 'tns-core-modules/ui/frame';
 import { fromFileOrResource } from 'tns-core-modules/image-source';
 import { screen } from 'tns-core-modules/platform';
+import { Frame } from 'tns-core-modules/ui/frame';
 import { ad as androidUtils } from 'tns-core-modules/utils/utils';
 import { Mode, OptionsCommon } from './loading-indicator.common';
 
@@ -46,9 +46,9 @@ export class LoadingIndicator {
       options.userInteractionEnabled =
         options.userInteractionEnabled !== undefined || true;
       if (!this._popOver) {
-          setTimeout(() => { 
-            this._createPopOver(context, options);
-         });
+        setTimeout(() => {
+          this._createPopOver(context, options);
+        });
       } else {
         this._updatePopOver(context, options);
       }
@@ -317,7 +317,8 @@ export class LoadingIndicator {
     contentView.addView(parentView);
     this._popOver.setContentView(contentView);
     const view =
-      Frame.topmost().android.rootViewGroup || Frame.topmost().currentPage.android;
+      Frame.topmost().android.rootViewGroup ||
+      Frame.topmost().currentPage.android;
 
     // handle anchoring target view
     if (options.android && options.android.view) {
