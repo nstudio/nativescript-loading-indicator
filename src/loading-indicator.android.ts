@@ -46,7 +46,7 @@ export class LoadingIndicator {
       options.userInteractionEnabled =
         options.userInteractionEnabled !== undefined || true;
       if (!this._popOver) {
-          settimeout(() => { 
+          setTimeout(() => { 
             this._createPopOver(context, options);
          });
       } else {
