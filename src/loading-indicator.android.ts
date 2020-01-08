@@ -29,6 +29,7 @@ export class LoadingIndicator {
   private _messageId: number;
   private _detailsId: number;
   private _customViewId: number;
+  private _loadersInstances: android.widget.PopupWindow[];
 
   constructor() {
     this._defaultProgressColor = new Color('#007DD6');
@@ -48,6 +49,7 @@ export class LoadingIndicator {
       if (!this._popOver) {
         setTimeout(() => {
           this._createPopOver(context, options);
+          this._loadersInstances.push(this._popOver);
         });
       } else {
         this._updatePopOver(context, options);
@@ -56,11 +58,27 @@ export class LoadingIndicator {
   }
 
   hide() {
-    if (this._popOver) {
-      this._popOver.dismiss();
+    let i = 0;
+    try {
+      this._loadersInstances.forEach(loader => {
+        if(loader) {
+            if (this._isShowing(loader)) {
+                loader.dismiss();
+            }
+        }
+        this._loadersInstances.splice(i, 1);
+        i++;
+      });
+
       this._popOver = null;
       this._currentProgressColor = null;
+    } catch(e) {
+      console.log(e)
     }
+  }
+  
+  private _isShowing(loader: android.widget.PopupWindow) {
+    return loader.isShowing();
   }
 
   private _createPopOver(context, options?: OptionsCommon) {
