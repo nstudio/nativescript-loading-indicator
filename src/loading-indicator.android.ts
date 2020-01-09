@@ -61,10 +61,10 @@ export class LoadingIndicator {
     let i = 0;
     try {
       this._loadersInstances.forEach(loader => {
-        if(loader) {
-            if (this._isShowing(loader)) {
-                loader.dismiss();
-            }
+        if (loader) {
+          if (this._isShowing(loader)) {
+            loader.dismiss();
+          }
         }
         this._loadersInstances.splice(i, 1);
         i++;
@@ -72,11 +72,11 @@ export class LoadingIndicator {
 
       this._popOver = null;
       this._currentProgressColor = null;
-    } catch(e) {
-      console.log(e)
+    } catch (e) {
+      console.log(e);
     }
   }
-  
+
   private _isShowing(loader: android.widget.PopupWindow) {
     return loader.isShowing();
   }
