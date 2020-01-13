@@ -37,6 +37,7 @@ export class LoadingIndicator {
     this._messageId = android.view.View.generateViewId();
     this._detailsId = android.view.View.generateViewId();
     this._customViewId = android.view.View.generateViewId();
+    this._loadersInstances = [];
   }
 
   show(options?: OptionsCommon) {
