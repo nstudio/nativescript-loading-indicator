@@ -36,8 +36,14 @@ NativeScript-Loading-Indicator is a plugin for NativeScript which overlays a loa
 
 ## Installation
 
+## NativeScript 6.3+
 ```bash
 tns plugin add @nstudio/nativescript-loading-indicator
+```
+
+## NativeScript lower than 6.3
+```bash
+tns plugin add @nstudio/nativescript-loading-indicator@2.0.5
 ```
 
 ## Screenshots
