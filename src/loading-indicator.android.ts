@@ -59,17 +59,16 @@ export class LoadingIndicator {
   }
 
   hide() {
-    let i = 0;
     try {
-      this._loadersInstances.forEach(loader => {
+      for (let i = 0; i < this._loadersInstances.length; i++) {
+        const loader = this._loadersInstances[i];
         if (loader) {
           if (this._isShowing(loader)) {
             loader.dismiss();
+            this._loadersInstances.splice(i, 1);
           }
         }
-        this._loadersInstances.splice(i, 1);
-        i++;
-      });
+      }
 
       this._popOver = null;
       this._currentProgressColor = null;
