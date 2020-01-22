@@ -1,4 +1,4 @@
-import { Color } from 'tns-core-modules/color';
+import { Color } from '@nativescript/core/color';
 import { Mode, OptionsCommon } from './loading-indicator.common';
 
 export * from './loading-indicator.common';
