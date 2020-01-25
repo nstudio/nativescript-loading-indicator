@@ -1,6 +1,6 @@
 {
   "name": "@nstudio/nativescript-loading-indicator",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A NativeScript plugin for showing an overlayed loading indicator.",
   "main": "loading-indicator",
   "typings": "index.d.ts",
@@ -29,7 +29,8 @@
     "plugin.prepare": "npm run build && cd ../demo && tns plugin remove nativescript-loading-indicator && tns plugin add ../src",
     "clean": "npm run demo.reset && npx rimraf -- node_modules package-lock.json && npm i",
     "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**' --exclude '**/platforms/**' --exclude '**/typings/**'",
-    "prepack": "npm run build.native"
+    "prepack": "npm run build.native",
+    "generate.typings.ios": "cd ../demo && TNS_DEBUG_METADATA_PATH=\"$(pwd)/metadata\" tns build ios && TNS_TYPESCRIPT_DECLARATIONS_PATH=\"$(pwd)/typings\" tns build ios && echo 'Now look for your library typings in demo/typings!'"
   },
   "lint-staged": {
     "**/*.{js, css, ts, json, scss, html, xml, md}": [

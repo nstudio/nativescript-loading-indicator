@@ -75,8 +75,6 @@ declare class MBBarProgressView extends UIView {
 declare class MBProgressHUD extends UIView {
   static HUDForView(view: UIView): MBProgressHUD;
 
-  static allHUDsForView(view: UIView): NSArray<any>;
-
   static alloc(): MBProgressHUD; // inherited from NSObject
 
   static appearance(): MBProgressHUD; // inherited from UIAppearance
@@ -101,15 +99,11 @@ declare class MBProgressHUD extends UIView {
     containerTypes: NSArray<typeof NSObject> | typeof NSObject[]
   ): MBProgressHUD; // inherited from UIAppearance
 
-  static hideAllHUDsForViewAnimated(view: UIView, animated: boolean): number;
-
   static hideHUDForViewAnimated(view: UIView, animated: boolean): boolean;
 
   static new(): MBProgressHUD; // inherited from NSObject
 
   static showHUDAddedToAnimated(view: UIView, animated: boolean): MBProgressHUD;
-
-  activityIndicatorColor: UIColor;
 
   animationType: MBProgressHUDAnimation;
 
@@ -119,13 +113,9 @@ declare class MBProgressHUD extends UIView {
 
   readonly button: UIButton;
 
-  color: UIColor;
-
   completionBlock: () => void;
 
   contentColor: UIColor;
-
-  cornerRadius: number;
 
   customView: UIView;
 
@@ -135,23 +125,9 @@ declare class MBProgressHUD extends UIView {
 
   readonly detailsLabel: UILabel;
 
-  detailsLabelColor: UIColor;
-
-  detailsLabelFont: UIFont;
-
-  detailsLabelText: string;
-
-  dimBackground: boolean;
-
   graceTime: number;
 
   readonly label: UILabel;
-
-  labelColor: UIColor;
-
-  labelFont: UIFont;
-
-  labelText: string;
 
   margin: number;
 
@@ -163,31 +139,15 @@ declare class MBProgressHUD extends UIView {
 
   offset: CGPoint;
 
-  opacity: number;
-
   progress: number;
 
   progressObject: NSProgress;
 
   removeFromSuperViewOnHide: boolean;
 
-  readonly size: CGSize;
-
   square: boolean;
 
-  taskInProgress: boolean;
-
-  xOffset: number;
-
-  yOffset: number;
-
   constructor(o: { view: UIView });
-
-  constructor(o: { window: UIWindow });
-
-  hide(animated: boolean): void;
-
-  hideAfterDelay(animated: boolean, delay: number): void;
 
   hideAnimated(animated: boolean): void;
 
@@ -195,39 +155,7 @@ declare class MBProgressHUD extends UIView {
 
   initWithView(view: UIView): this;
 
-  initWithWindow(window: UIWindow): this;
-
-  show(animated: boolean): void;
-
   showAnimated(animated: boolean): void;
-
-  showAnimatedWhileExecutingBlock(animated: boolean, block: () => void): void;
-
-  showAnimatedWhileExecutingBlockCompletionBlock(
-    animated: boolean,
-    block: () => void,
-    completion: () => void
-  ): void;
-
-  showAnimatedWhileExecutingBlockOnQueue(
-    animated: boolean,
-    block: () => void,
-    queue: NSObject
-  ): void;
-
-  showAnimatedWhileExecutingBlockOnQueueCompletionBlock(
-    animated: boolean,
-    block: () => void,
-    queue: NSObject,
-    completion: () => void
-  ): void;
-
-  showWhileExecutingOnTargetWithObjectAnimated(
-    method: string,
-    target: any,
-    object: any,
-    animated: boolean
-  ): void;
 }
 
 declare const enum MBProgressHUDAnimation {

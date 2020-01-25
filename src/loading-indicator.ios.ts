@@ -25,7 +25,7 @@ export class LoadingIndicator {
 
     // options
     if (options.message) {
-      this._hud.labelText = options.message;
+      this._hud.label.text = options.message;
     }
 
     if (options.progress) {
@@ -38,7 +38,11 @@ export class LoadingIndicator {
       (this._hud as any).mode = Mode.Indeterminate;
     }
 
-    if (options.dimBackground) this._hud.dimBackground = options.dimBackground;
+    if (options.dimBackground) {
+      this._hud.backgroundView.style = MBProgressHUDBackgroundStyle.SolidColor;
+      this._hud.backgroundView.color = new Color('#000').ios;
+      this._hud.backgroundView.alpha = 0.3;
+    }
 
     if (options.margin) this._hud.margin = options.margin;
 
@@ -46,21 +50,23 @@ export class LoadingIndicator {
       this._hud.userInteractionEnabled = options.userInteractionEnabled;
 
     if (options.backgroundColor) {
-      this._hud.color = new Color(options.backgroundColor).ios;
+      this._hud.bezelView.blurEffectStyle = UIBlurEffectStyle.Regular;
+      this._hud.bezelView.backgroundColor = new Color(
+        options.backgroundColor
+      ).ios;
     }
 
     if (options.color) {
       // make activity and main label same color
-      this._hud.activityIndicatorColor = new Color(options.color).ios;
       this._hud.contentColor = new Color(options.color).ios; // setting this seems to enforce coloring the activity indicator correctly
-      this._hud.labelColor = new Color(options.color).ios;
+      this._hud.label.textColor = new Color(options.color).ios;
     }
 
     if (options.details) {
-      this._hud.detailsLabelText = options.details;
+      this._hud.detailsLabel.text = options.details;
       // detail label same color with 80% opacity of that color
       // TODO: allow specific control
-      this._hud.detailsLabelColor =
+      this._hud.detailsLabel.textColor =
         options && options.color
           ? new Color(options.color).ios
           : new Color('#333').ios;

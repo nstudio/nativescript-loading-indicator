@@ -137,7 +137,10 @@ export class LoadingTest extends Observable {
       color: '#fff000',
       mode: Mode.Determinate
     });
-    this.demoProgress('#fff000');
+
+    setTimeout(() => {
+      this.indicator.hide();
+    }, 3500);
   }
 
   public showLoaderAnnularDeterminate() {
@@ -147,17 +150,42 @@ export class LoadingTest extends Observable {
       backgroundColor: '#000',
       mode: Mode.AnnularDeterminate
     });
-    this.demoProgress('#38ef7d');
+
+    setTimeout(() => {
+      this.indicator.hide();
+    }, 3500);
   }
 
   public showLoaderDeterminateHorizontalBar() {
+    const mode = Mode.DeterminateHorizontalBar;
+    const color = '#FF0099';
+
     this.indicator.show({
       message: 'Determinate Horizontal Bar Mode',
-      color: '#FF0099',
+      color,
       backgroundColor: '#240b36',
-      mode: Mode.DeterminateHorizontalBar
+      mode
     });
-    this.demoProgress('#FF0099');
+
+    setTimeout(() => {
+      this.indicator.show({ progress: 0.15, color, mode });
+    }, 500);
+    setTimeout(() => {
+      this.indicator.show({ progress: 0.35, color, mode });
+    }, 1500);
+    setTimeout(() => {
+      this.indicator.show({ progress: 0.65, color, mode });
+    }, 2500);
+    setTimeout(() => {
+      this.indicator.show({ progress: 0.85, color, mode });
+    }, 3000);
+    setTimeout(() => {
+      this.indicator.show({ progress: 0.99, color, mode });
+    }, 3750);
+    setTimeout(() => {
+      this.indicator.show({ progress: 1, color, mode });
+      this.indicator.hide();
+    }, 4500);
   }
 
   public showLoaderModeText() {
