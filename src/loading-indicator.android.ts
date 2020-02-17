@@ -72,7 +72,7 @@ export class LoadingIndicator {
     }
   }
 
-  hide(attemptTimeout: number = 1000): void {
+  hide(targetView?: any, attemptTimeout: number = 1000): void {
     if (this._isCreatingPopOver) {
       this._waitForCreatePopOver(attemptTimeout);
       return;
