@@ -30,6 +30,7 @@ export class LoadingIndicator {
   private _detailsId: number;
   private _customViewId: number;
   private _loadersInstances: android.widget.PopupWindow[];
+  private _isCreatingPopOver: boolean;
 
   constructor() {
     this._defaultProgressColor = new Color('#007DD6');
@@ -38,6 +39,7 @@ export class LoadingIndicator {
     this._detailsId = android.view.View.generateViewId();
     this._customViewId = android.view.View.generateViewId();
     this._loadersInstances = [];
+    this._isCreatingPopOver = false;
   }
 
   show(options?: OptionsCommon) {
@@ -47,14 +49,28 @@ export class LoadingIndicator {
       options.android = options.android || {};
       options.userInteractionEnabled =
         options.userInteractionEnabled !== undefined || true;
+
       if (!this._popOver) {
-        setTimeout(() => {
-          this._createPopOver(context, options);
-          this._loadersInstances.push(this._popOver);
+        this._isCreatingPopOver = true;
+        new Promise((resolve) => {
+          setTimeout(() => {
+            this._createPopOver(context, options);
+            this._loadersInstances.push(this._popOver);
+            resolve();
+          });
+        }).then(() => {
+          this._isCreatingPopOver = false;
+        }).catch((error) => {
+          // Ensure this is left in a clean state.
+          this._isCreatingPopOver = false;
+          const message = error && error.message ? `: ${error.message}` : '';
+          console.error(`Error creating Loading Indicator Pop Over${message}`);
         });
-      } else {
-        this._updatePopOver(context, options);
+        return;
       }
+      this._updatePopOver(context, options);
+    }
+  }
     }
   }
 
