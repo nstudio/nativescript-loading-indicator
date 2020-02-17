@@ -1,6 +1,6 @@
 export class LoadingIndicator {
   show(options?: OptionsCommon): any;
-  hide(): void;
+  hide(targetView?: any, attemptTimeout?: number): void;
 }
 
 export interface OptionsCommon {
