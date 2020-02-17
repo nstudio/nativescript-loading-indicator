@@ -21,6 +21,8 @@ function useAndroidX() {
   return global.androidx && global.androidx.core.view;
 }
 
+const HIDE_RETRY_MS = 100;
+
 export class LoadingIndicator {
   private _popOver: android.widget.PopupWindow;
   private _currentProgressColor: Color;
@@ -71,10 +73,16 @@ export class LoadingIndicator {
       this._updatePopOver(context, options);
     }
   }
+
+  hide(attemptTimeout: number = 1000): void {
+    if (this._isCreatingPopOver) {
+      this._waitForCreatePopOver(attemptTimeout);
+      return;
     }
+    this._tryHide();
   }
 
-  hide() {
+  private _tryHide(): void {
     try {
       for (let i = 0; i < this._loadersInstances.length; i++) {
         const loader = this._loadersInstances[i];
@@ -91,6 +99,23 @@ export class LoadingIndicator {
     } catch (e) {
       console.log(e);
     }
+  }
+
+  private _waitForCreatePopOver(attemptTimeout: number) {
+    const startTime = Date.now();
+
+    const awaitCreation = async () => {
+      if (!this._isCreatingPopOver) {
+        return this._tryHide();
+      }
+      if (Date.now() > startTime + attemptTimeout) {
+        console.warn('Hide attempt timeout exceeded');
+        return;
+      }
+      await new Promise((resolve) => setTimeout(resolve, HIDE_RETRY_MS));
+      return awaitCreation();
+    };
+    return awaitCreation();
   }
 
   private _isShowing(loader: android.widget.PopupWindow) {
