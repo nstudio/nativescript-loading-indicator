@@ -55,11 +55,9 @@ export class LoadingIndicator {
       if (!this._popOver) {
         this._isCreatingPopOver = true;
         new Promise((resolve) => {
-          setTimeout(() => {
-            this._createPopOver(context, options);
-            this._loadersInstances.push(this._popOver);
-            resolve();
-          });
+          this._createPopOver(context, options);
+          this._loadersInstances.push(this._popOver);
+          resolve();
         }).then(() => {
           this._isCreatingPopOver = false;
         }).catch((error) => {
