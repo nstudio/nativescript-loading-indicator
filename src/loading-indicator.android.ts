@@ -1,6 +1,6 @@
 import * as application from '@nativescript/core/application';
 import { Color } from '@nativescript/core/color';
-import { fromFileOrResource } from '@nativescript/core/image-source';
+import { ImageSource } from '@nativescript/core/image-source';
 import { screen } from '@nativescript/core/platform';
 import { Frame } from '@nativescript/core/ui/frame';
 import { ad as androidUtils } from '@nativescript/core/utils/utils';
@@ -577,7 +577,7 @@ export class LoadingIndicator {
         .replace('.jpg', '')
         .replace('.png', '')
         .replace('.jpeg', '');
-      const image = fromFileOrResource('res://' + fileName);
+      const image = ImageSource.fromFileOrResourceSync('res://' + fileName);
       if (image && image.android) {
         customView.setImageBitmap(image.android);
       }
