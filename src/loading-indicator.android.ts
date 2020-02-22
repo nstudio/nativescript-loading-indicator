@@ -21,6 +21,8 @@ function useAndroidX() {
   return global.androidx && global.androidx.core.view;
 }
 
+const HIDE_RETRY_MS = 100;
+
 export class LoadingIndicator {
   private _popOver: android.widget.PopupWindow;
   private _currentProgressColor: Color;
@@ -30,6 +32,7 @@ export class LoadingIndicator {
   private _detailsId: number;
   private _customViewId: number;
   private _loadersInstances: android.widget.PopupWindow[];
+  private _isCreatingPopOver: boolean;
 
   constructor() {
     this._defaultProgressColor = new Color('#007DD6');
@@ -38,6 +41,7 @@ export class LoadingIndicator {
     this._detailsId = android.view.View.generateViewId();
     this._customViewId = android.view.View.generateViewId();
     this._loadersInstances = [];
+    this._isCreatingPopOver = false;
   }
 
   show(options?: OptionsCommon) {
@@ -47,18 +51,36 @@ export class LoadingIndicator {
       options.android = options.android || {};
       options.userInteractionEnabled =
         options.userInteractionEnabled !== undefined || true;
+
       if (!this._popOver) {
-        setTimeout(() => {
+        this._isCreatingPopOver = true;
+        new Promise((resolve) => {
           this._createPopOver(context, options);
           this._loadersInstances.push(this._popOver);
+          resolve();
+        }).then(() => {
+          this._isCreatingPopOver = false;
+        }).catch((error) => {
+          // Ensure this is left in a clean state.
+          this._isCreatingPopOver = false;
+          const message = error && error.message ? `: ${error.message}` : '';
+          console.error(`Error creating Loading Indicator Pop Over${message}`);
         });
-      } else {
-        this._updatePopOver(context, options);
+        return;
       }
+      this._updatePopOver(context, options);
     }
   }
 
-  hide() {
+  hide(targetView?: any, attemptTimeout: number = 1000): void {
+    if (this._isCreatingPopOver) {
+      this._waitForCreatePopOver(attemptTimeout);
+      return;
+    }
+    this._tryHide();
+  }
+
+  private _tryHide(): void {
     try {
       for (let i = 0; i < this._loadersInstances.length; i++) {
         const loader = this._loadersInstances[i];
@@ -75,6 +97,23 @@ export class LoadingIndicator {
     } catch (e) {
       console.log(e);
     }
+  }
+
+  private _waitForCreatePopOver(attemptTimeout: number) {
+    const startTime = Date.now();
+
+    const awaitCreation = async () => {
+      if (!this._isCreatingPopOver) {
+        return this._tryHide();
+      }
+      if (Date.now() > startTime + attemptTimeout) {
+        console.warn('Hide attempt timeout exceeded');
+        return;
+      }
+      await new Promise((resolve) => setTimeout(resolve, HIDE_RETRY_MS));
+      return awaitCreation();
+    };
+    return awaitCreation();
   }
 
   private _isShowing(loader: android.widget.PopupWindow) {
