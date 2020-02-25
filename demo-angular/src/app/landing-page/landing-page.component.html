@@ -1,0 +1,13 @@
+<StackLayout>
+    <label style="text-align: center;" [text]="changeTestText"></label>
+    <button text="Change test with new colour" (tap)="onPressChangeWithNewColourTest()"></button>
+
+    <label style="text-align: center;" [text]="duplicateTestText"></label>
+    <button text="Duplicate show test with no text" (tap)="onPressDuplicateWithNoTextTest()"></button>
+    <button text="Duplicate show test with same text" (tap)="onPressDuplicateWithSameTextTest()"></button>
+    <button text="Duplicate show test with new message" (tap)="onPressDuplicateWithNewTextTest()"></button>
+
+    <label style="text-align: center;" [text]="navigationTestText"></label>
+    <button text="Navigate delayed test" (tap)="onPressNavigateDelayedTest()"></button>
+    <button text="Navigate instant test" (tap)="onPressNavigateInstantTest()"></button>
+</StackLayout>
