@@ -49,8 +49,7 @@ export class LoadingIndicator {
     if (context) {
       options = options || {};
       options.android = options.android || {};
-      options.userInteractionEnabled =
-        options.userInteractionEnabled !== undefined || true;
+      options.userInteractionEnabled = options.userInteractionEnabled !== undefined;
 
       if (!this._popOver) {
         this._isCreatingPopOver = true;
@@ -478,9 +477,15 @@ export class LoadingIndicator {
       options.mode !== Mode.CustomView &&
       options.mode === Mode.Indeterminate
     ) {
-      const progressView = new android.widget.ProgressBar(context);
-      progressView.setId(this._progressId);
-      parentView.addView(progressView, 0);
+      /**
+       * Get the existing indicator if it exists, assess whether or not the
+       * acquired child is the correct class.
+       */
+      let progressView = parentView.getChildAt(0);
+      if (progressView instanceof android.widget.ProgressBar === false || progressView === undefined) {
+        progressView = new android.widget.ProgressBar(context);
+      }
+
       if (options.color) {
         this._setColor(options.color, progressView);
         this._currentProgressColor = new Color(options.color);
