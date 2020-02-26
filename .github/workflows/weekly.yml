@@ -49,3 +49,11 @@ jobs:
         run: |
           cd demo
           tns build ios --env.uglify
+      - name: Build Android Angular Test App
+        run: |
+          cd demo-angular
+          tns build android --env.uglify
+      - name: Build iOS Angular Test App
+        run: |
+          cd demo-angular
+          tns build ios --env.uglify
