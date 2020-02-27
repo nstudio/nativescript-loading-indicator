@@ -1,9 +1,9 @@
-import * as application from '@nativescript/core/application';
-import { Color } from '@nativescript/core/color';
-import { ImageSource } from '@nativescript/core/image-source';
-import { screen } from '@nativescript/core/platform';
-import { Frame } from '@nativescript/core/ui/frame';
-import { ad as androidUtils } from '@nativescript/core/utils/utils';
+import * as application from 'tns-core-modules/application';
+import { Color } from 'tns-core-modules/color';
+import { ImageSource } from 'tns-core-modules/image-source';
+import { screen } from 'tns-core-modules/platform';
+import { Frame } from 'tns-core-modules/ui/frame';
+import { ad as androidUtils } from 'tns-core-modules/utils/utils';
 import { Mode, OptionsCommon } from './loading-indicator.common';
 
 export * from './loading-indicator.common';
