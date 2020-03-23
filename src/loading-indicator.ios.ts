@@ -26,6 +26,8 @@ export class LoadingIndicator {
     // options
     if (options.message) {
       this._hud.label.text = options.message;
+      // allow line breaking
+      this._hud.label.numberOfLines = 0;
     }
 
     if (options.progress) {
