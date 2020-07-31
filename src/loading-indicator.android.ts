@@ -1,9 +1,4 @@
-import * as application from '@nativescript/core/application';
-import { Color } from '@nativescript/core/color';
-import { ImageSource } from '@nativescript/core/image-source';
-import { screen } from '@nativescript/core/platform';
-import { Frame } from '@nativescript/core/ui/frame';
-import { ad as androidUtils } from '@nativescript/core/utils/utils';
+import { Application, Color, ImageSource, Screen, Frame, Utils } from '@nativescript/core';
 import { Mode, OptionsCommon } from './loading-indicator.common';
 
 export * from './loading-indicator.common';
@@ -45,7 +40,7 @@ export class LoadingIndicator {
   }
 
   show(options?: OptionsCommon) {
-    const context = androidUtils.getApplicationContext();
+    const context = Utils.android.getApplicationContext();
     if (context) {
       options = options || {};
       options.android = options.android || {};
@@ -193,7 +188,7 @@ export class LoadingIndicator {
           android.view.ViewGroup.LayoutParams.WRAP_CONTENT
         );
 
-    const defaultPadding = 10 * screen.mainScreen.scale;
+    const defaultPadding = 10 * Screen.mainScreen.scale;
     parentView.setPadding(
       defaultPadding,
       defaultPadding,
@@ -203,7 +198,7 @@ export class LoadingIndicator {
 
     // handle margin option
     if (options.margin !== undefined) {
-      const margin = options.margin * screen.mainScreen.scale;
+      const margin = options.margin * Screen.mainScreen.scale;
       parentViewParams.setMargins(margin, margin, margin, margin);
     }
 
@@ -317,8 +312,8 @@ export class LoadingIndicator {
         progressView.setBackgroundDrawable(this._getBackgroundDrawable());
         progressView.setLayoutParams(
           new android.widget.LinearLayout.LayoutParams(
-            60 * screen.mainScreen.scale,
-            60 * screen.mainScreen.scale
+            60 * Screen.mainScreen.scale,
+            60 * Screen.mainScreen.scale
           )
         );
         break;
@@ -330,8 +325,8 @@ export class LoadingIndicator {
         progressView.setBackgroundDrawable(this._getBackgroundDrawable());
         progressView.setLayoutParams(
           new android.widget.LinearLayout.LayoutParams(
-            60 * screen.mainScreen.scale,
-            60 * screen.mainScreen.scale
+            60 * Screen.mainScreen.scale,
+            60 * Screen.mainScreen.scale
           )
         );
         break;
@@ -388,8 +383,8 @@ export class LoadingIndicator {
         0
       );
     } else {
-      this._popOver.setWidth(screen.mainScreen.widthPixels);
-      this._popOver.setHeight(screen.mainScreen.heightPixels);
+      this._popOver.setWidth(Screen.mainScreen.widthPixels);
+      this._popOver.setHeight(Screen.mainScreen.heightPixels);
       this._popOver.showAtLocation(view, android.view.Gravity.CENTER, 0, 0);
     }
   }
@@ -643,8 +638,8 @@ export class LoadingIndicator {
     progressView.setBackgroundDrawable(this._getBackgroundDrawable());
     progressView.setLayoutParams(
       new android.widget.LinearLayout.LayoutParams(
-        60 * screen.mainScreen.scale,
-        60 * screen.mainScreen.scale
+        60 * Screen.mainScreen.scale,
+        60 * Screen.mainScreen.scale
       )
     );
     return progressView;
@@ -699,7 +694,7 @@ export class LoadingIndicator {
   }
 
   private _getResources() {
-    const ctx = application.android.foregroundActivity as android.app.Activity;
+    const ctx = Application.android.foregroundActivity as android.app.Activity;
     return ctx.getResources();
   }
 
