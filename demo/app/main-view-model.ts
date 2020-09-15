@@ -1,8 +1,8 @@
-import { Observable } from '@nativescript/core/data/observable';
-import { confirm } from '@nativescript/core/ui/dialogs';
-import { Page } from '@nativescript/core/ui/page';
-import { openUrl } from '@nativescript/core/utils/utils';
-import { LoadingIndicator, Mode } from '@nstudio/nativescript-loading-indicator';
+import { Dialogs, Observable, Page, Utils } from '@nativescript/core';
+import {
+  LoadingIndicator,
+  Mode,
+} from '@nstudio/nativescript-loading-indicator';
 
 export class LoadingTest extends Observable {
   private indicator: LoadingIndicator;
@@ -17,34 +17,34 @@ export class LoadingTest extends Observable {
   }
 
   nStudioIconTap() {
-    confirm({
+    Dialogs.confirm({
       message:
         'nStudio, LLC. specializes in custom software applications ranging from mobile, web, desktop, server and more. Would you like to visit nstudio.io?',
       okButtonText: 'Yes',
-      cancelButtonText: 'Close'
-    }).then(result => {
+      cancelButtonText: 'Close',
+    }).then((result) => {
       if (result) {
-        openUrl('https://nstudio.io');
+        Utils.openUrl('https://nstudio.io');
       }
     });
   }
 
   public showLoader() {
     this.indicator.show({
-      message: 'Loading test...'
+      message: 'Loading test...',
     });
 
     setTimeout(() => {
       this.indicator.show({
         message: 'TextMode',
-        mode: Mode.Text
+        mode: Mode.Text,
       });
     }, 2000);
 
     setTimeout(() => {
       this.indicator.show({
         message: 'Updating',
-        mode: Mode.Indeterminate
+        mode: Mode.Indeterminate,
       });
       this.demoProgress('red');
     }, 3000);
@@ -69,7 +69,7 @@ export class LoadingTest extends Observable {
     this.indicator.show({
       message: 'Loading, no bezel!',
       color: '#38ef7d',
-      hideBezel: true
+      hideBezel: true,
     });
     this.demoLoader();
   }
@@ -77,11 +77,11 @@ export class LoadingTest extends Observable {
   public showLoaderMsgAndDetails() {
     this.indicator.show({
       message: 'One moment',
-      details: 'Updating data...'
+      details: 'Updating data...',
     });
     setTimeout(() => {
       this.indicator.show({
-        details: 'Transferring secret codes...'
+        details: 'Transferring secret codes...',
       });
       this.demoLoader();
     }, 1000);
@@ -95,7 +95,7 @@ export class LoadingTest extends Observable {
   public showLoaderMargin() {
     this.indicator.show({
       message: 'Message offset margin...',
-      margin: 30
+      margin: 30,
     });
     this.demoLoader();
   }
@@ -104,7 +104,7 @@ export class LoadingTest extends Observable {
     this.indicator.show({
       dimBackground: true,
       message: 'Dimmed the background.',
-      color: '#3F5EFB'
+      color: '#3F5EFB',
     });
     this.demoLoader();
   }
@@ -112,7 +112,7 @@ export class LoadingTest extends Observable {
   public showLoaderColor() {
     this.indicator.show({
       color: '#8A2BE2',
-      backgroundColor: '#4B9ED6'
+      backgroundColor: '#4B9ED6',
     });
     this.demoLoader();
   }
@@ -122,7 +122,7 @@ export class LoadingTest extends Observable {
       message: 'Indeterminate Mode',
       backgroundColor: '#3F5EFB',
       color: '#fff000',
-      mode: Mode.Indeterminate
+      mode: Mode.Indeterminate,
     });
 
     setTimeout(() => {
@@ -135,7 +135,7 @@ export class LoadingTest extends Observable {
       message: 'Determinate Mode',
       backgroundColor: '#3F5EFB',
       color: '#fff000',
-      mode: Mode.Determinate
+      mode: Mode.Determinate,
     });
 
     setTimeout(() => {
@@ -148,7 +148,7 @@ export class LoadingTest extends Observable {
       message: 'Annular Determinate Mode',
       color: '#38ef7d',
       backgroundColor: '#000',
-      mode: Mode.AnnularDeterminate
+      mode: Mode.AnnularDeterminate,
     });
 
     setTimeout(() => {
@@ -164,7 +164,7 @@ export class LoadingTest extends Observable {
       message: 'Determinate Horizontal Bar Mode',
       color,
       backgroundColor: '#240b36',
-      mode
+      mode,
     });
 
     setTimeout(() => {
@@ -191,7 +191,7 @@ export class LoadingTest extends Observable {
   public showLoaderModeText() {
     this.indicator.show({
       message: 'Text only',
-      mode: Mode.Text
+      mode: Mode.Text,
     });
     this.demoLoader();
   }
@@ -201,7 +201,7 @@ export class LoadingTest extends Observable {
       message: 'Completed',
       details: 'Go wild!',
       customView: 'checkmark.png',
-      mode: Mode.CustomView
+      mode: Mode.CustomView,
     });
     this.demoLoader();
   }
@@ -212,11 +212,11 @@ export class LoadingTest extends Observable {
       mode: Mode.Determinate,
       android: {
         cancelable: true,
-        cancelListener: dialog => {
+        cancelListener: (dialog) => {
           console.log('cancelled');
           clearInterval(interval);
-        }
-      }
+        },
+      },
     });
 
     let count = 0;

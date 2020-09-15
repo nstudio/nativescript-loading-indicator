@@ -1,4 +1,11 @@
-import { Application, Color, ImageSource, Screen, Frame, Utils } from '@nativescript/core';
+import {
+  Application,
+  Color,
+  Frame,
+  ImageSource,
+  Screen,
+  Utils,
+} from '@nativescript/core';
 import { Mode, OptionsCommon } from './loading-indicator.common';
 
 export * from './loading-indicator.common';
@@ -44,7 +51,8 @@ export class LoadingIndicator {
     if (context) {
       options = options || {};
       options.android = options.android || {};
-      options.userInteractionEnabled = options.userInteractionEnabled !== undefined;
+      options.userInteractionEnabled =
+        options.userInteractionEnabled !== undefined;
 
       if (!this._popOver) {
         this._isCreatingPopOver = true;
@@ -52,14 +60,18 @@ export class LoadingIndicator {
           this._createPopOver(context, options);
           this._loadersInstances.push(this._popOver);
           resolve();
-        }).then(() => {
-          this._isCreatingPopOver = false;
-        }).catch((error) => {
-          // Ensure this is left in a clean state.
-          this._isCreatingPopOver = false;
-          const message = error && error.message ? `: ${error.message}` : '';
-          console.error(`Error creating Loading Indicator Pop Over${message}`);
-        });
+        })
+          .then(() => {
+            this._isCreatingPopOver = false;
+          })
+          .catch((error) => {
+            // Ensure this is left in a clean state.
+            this._isCreatingPopOver = false;
+            const message = error && error.message ? `: ${error.message}` : '';
+            console.error(
+              `Error creating Loading Indicator Pop Over${message}`
+            );
+          });
         return;
       }
       this._updatePopOver(context, options);
@@ -147,7 +159,7 @@ export class LoadingIndicator {
             }
           }
           return true;
-        }
+        },
       })
     );
     const defaultBackgroundColor = android.graphics.Color.WHITE;
@@ -174,7 +186,7 @@ export class LoadingIndicator {
           event: android.view.MotionEvent
         ): boolean {
           return true;
-        }
+        },
       })
     );
 
@@ -477,7 +489,10 @@ export class LoadingIndicator {
        * acquired child is the correct class.
        */
       let progressView = parentView.getChildAt(0);
-      if (progressView instanceof android.widget.ProgressBar === false || progressView === undefined) {
+      if (
+        progressView instanceof android.widget.ProgressBar === false ||
+        progressView === undefined
+      ) {
         progressView = new android.widget.ProgressBar(context);
       }
 

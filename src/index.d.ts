@@ -99,5 +99,5 @@ export enum Mode {
   DeterminateHorizontalBar = 2,
   AnnularDeterminate = 3,
   CustomView = 4,
-  Text = 5
+  Text = 5,
 }
