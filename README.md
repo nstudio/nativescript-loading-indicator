@@ -15,35 +15,22 @@ NativeScript-Loading-Indicator is a plugin for NativeScript which overlays a loa
     <a href="https://www.npmjs.com/package/@nstudio/nativescript-loading-indicator">
         <img src="https://img.shields.io/npm/dt/@nstudio/nativescript-loading-indicator.svg?label=npm%20downloads" alt="npm">
     </a>
-    <a href="https://github.com/nstudio/nativescript-loading-indicator/stargazers">
-        <img src="https://img.shields.io/github/stars/nstudio/nativescript-loading-indicator.svg" alt="stars">
-    </a>
-     <a href="https://github.com/nstudio/nativescript-loading-indicator/network">
-        <img src="https://img.shields.io/github/forks/nstudio/nativescript-loading-indicator.svg" alt="forks">
-    </a>
-    <a href="https://github.com/nstudio/nativescript-loading-indicator/blob/master/LICENSE">
-        <img src="https://img.shields.io/github/license/nstudio/nativescript-loading-indicator.svg" alt="license">
-    </a>
-    <a href="http://nstudio.io">
-      <img src="https://github.com/nstudio/media/blob/master/images/nstudio-banner.png?raw=true" alt="nStudio banner">
-    </a>
-    <h5 align="center">Do you need assistance on your project or plugin? Contact the nStudio team anytime at <a href="mailto:team@nstudio.io">team@nstudio.io</a> to get up to speed with the best practices in mobile and web app development.
-    </h5>
-
 </p>
 
 ---
 
 ## Installation
 
-## NativeScript 6.3+
+## NativeScript 7+:
+
 ```bash
-tns plugin add @nstudio/nativescript-loading-indicator
+ns plugin add @nstudio/nativescript-loading-indicator
 ```
 
-## NativeScript lower than 6.3
+## NativeScript lower than 7:
+
 ```bash
-tns plugin add @nstudio/nativescript-loading-indicator@2.0.5
+tns plugin add @nstudio/nativescript-loading-indicator@3.0.x
 ```
 
 ## Screenshots
@@ -81,7 +68,7 @@ tns plugin add @nstudio/nativescript-loading-indicator@2.0.5
 import {
   LoadingIndicator,
   Mode,
-  OptionsCommon
+  OptionsCommon,
 } from '@nstudio/nativescript-loading-indicator';
 
 const indicator = new LoadingIndicator();
@@ -102,14 +89,14 @@ const options: OptionsCommon = {
   android: {
     view: someStackLayout.android, // Target view to show on top of (Defaults to entire window)
     cancelable: true,
-    cancelListener: function(dialog) {
+    cancelListener: function (dialog) {
       console.log('Loading cancelled');
-    }
+    },
   },
   ios: {
     view: someButton.ios, // Target view to show on top of (Defaults to entire window)
-    square: false
-  }
+    square: false,
+  },
 };
 
 indicator.show(options);
@@ -145,13 +132,13 @@ const options = {
   android: {
     view: android.view.View, // Target view to show on top of (Defaults to entire window)
     cancelable: true,
-    cancelListener: function(dialog) {
+    cancelListener: function (dialog) {
       console.log('Loading cancelled');
-    }
+    },
   },
   ios: {
-    view: UIView // Target view to show on top of (Defaults to entire window)
-  }
+    view: UIView, // Target view to show on top of (Defaults to entire window)
+  },
 };
 
 loader.show(options); // options is optional
@@ -272,6 +259,6 @@ export enum Mode {
   DeterminateHorizontalBar = 2,
   AnnularDeterminate = 3,
   CustomView = 4,
-  Text = 5
+  Text = 5,
 }
 ```
