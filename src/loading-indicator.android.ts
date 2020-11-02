@@ -379,9 +379,6 @@ export class LoadingIndicator {
 
     contentView.addView(parentView);
     this._popOver.setContentView(contentView);
-    const view =
-      Frame.topmost().android.rootViewGroup ||
-      Frame.topmost().currentPage.android;
 
     // handle anchoring target view
     if (options.android && options.android.view) {
@@ -395,6 +392,10 @@ export class LoadingIndicator {
         0
       );
     } else {
+      const view =
+        Frame.topmost().android.rootViewGroup ||
+        Frame.topmost().currentPage.android;
+
       this._popOver.setWidth(Screen.mainScreen.widthPixels);
       this._popOver.setHeight(Screen.mainScreen.heightPixels);
       this._popOver.showAtLocation(view, android.view.Gravity.CENTER, 0, 0);
