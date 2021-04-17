@@ -6,9 +6,6 @@ NativeScript-Loading-Indicator is a plugin for NativeScript which overlays a loa
 </h4>
 
 <p align="center">
- <a href="https://www.npmjs.com/package/@nstudio/nativescript-loading-indicator">
-        <img src="https://github.com/nstudio/nativescript-loading-indicator/workflows/Build%20CI/badge.svg" alt="Action Build">
-    </a>
     <a href="https://www.npmjs.com/package/@nstudio/nativescript-loading-indicator">
         <img src="https://img.shields.io/npm/v/@nstudio/nativescript-loading-indicator.svg" alt="npm">
     </a>
