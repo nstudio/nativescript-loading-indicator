@@ -11,13 +11,13 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - name: Set Node.js 10.x
+      - name: Set Node.js 12.x
         uses: actions/setup-node@v1
         with:
-          node-version: "10.x"
+          node-version: "12.x"
 
       - name: Build Plugin Source
-        run: cd src && npm i && npm i -g typescript@3.9.7 && tsc
+        run: cd src && npm i && npm i -g typescript@4.1.0 && tsc
 
       - name: Lint
         run: cd src && npm run tslint
