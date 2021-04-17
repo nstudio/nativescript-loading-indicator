@@ -47,7 +47,7 @@ export class LoadingIndicator {
   }
 
   show(options?: OptionsCommon) {
-    const context = Utils.android.getApplicationContext();
+    const context = Application.android.foregroundActivity || Application.android.startActivity;
     if (context) {
       options = options || {};
       options.android = options.android || {};
@@ -56,7 +56,7 @@ export class LoadingIndicator {
 
       if (!this._popOver) {
         this._isCreatingPopOver = true;
-        new Promise((resolve) => {
+        new Promise<void>((resolve) => {
           this._createPopOver(context, options);
           this._loadersInstances.push(this._popOver);
           resolve();
