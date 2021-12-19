@@ -1,3 +1,5 @@
+## Source management moved to [nstudio/nativescript-plugins](https://github.com/nstudio/nativescript-plugins/tree/main/packages/nativescript-loading-indicator)
+---
 <a align="center" href="https://www.npmjs.com/package/@nstudio/nativescript-loading-indicator">
     <h3 align="center">NativeScript Loading Indicator</h3>
 </a>
